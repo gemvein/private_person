@@ -17,9 +17,9 @@ Jeweler::Tasks.new do |gem|
   gem.name = "private_person"
   gem.homepage = "http://github.com/nerakdon/private_person"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "karen.e.lundgren@gmail.com"
+  gem.summary = %Q{Private person puts your users in control of their own privacy policies.}
+  gem.description = %Q{Private person is an active record extension gem that allows a model to be given privacy settings over arbitrary models and polymorphic relations, putting users' accounts in control of their own privacy policies.}
+  gem.email = "webmaster@sourcherryweb.com"
   gem.authors = ["Karen Lundgren"]
   # dependencies defined in Gemfile
 end
@@ -33,7 +33,7 @@ end
 
 RSpec::Core::RakeTask.new(:rcov) do |spec|
   spec.pattern = 'spec/**/*_spec.rb'
-  spec.rcov = true
+  spec.rcov = false
 end
 
 task :default => :spec

@@ -1,8 +1,8 @@
-= private_person
+= PrivatePerson
 
-Description goes here.
+Private person is an active record extension gem that allows a model to be given privacy settings over arbitrary models and polymorphic relations, putting users' accounts in control of their own privacy policies.
 
-== Contributing to private_person
+== Contributing to Person
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
@@ -14,6 +14,5 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2013 Karen Lundgren. See LICENSE.txt for
-further details.
+Copyright (c) 2013 Sour Cherry Web. See LICENSE.txt for further details.
 

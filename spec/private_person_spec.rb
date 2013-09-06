@@ -1,7 +1,7 @@
-require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
+require 'spec_helper'
 
-describe "PrivatePerson" do
-  it "fails" do
-    fail "hey buddy, you should probably rename this file and start specing for real"
+describe PrivatePerson do
+  it 'should return correct version string' do
+    PrivatePerson.version_string.should == "PrivatePerson version #{PrivatePerson::VERSION}"
   end
 end
