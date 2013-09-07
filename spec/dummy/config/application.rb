@@ -6,6 +6,7 @@ require "active_record/railtie"
 
 Bundler.require
 require "private_person"
+require 'acts_as_follower'
 
 module Dummy
   class Application < Rails::Application

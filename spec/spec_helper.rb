@@ -10,10 +10,10 @@ require 'rspec/rails'
 
 require 'factory_girl_rails'
 FactoryGirl.definition_file_paths = %w(spec/factories)
-FactoryGirl.find_definitions
 
 require 'database_cleaner'
 require 'shoulda-matchers'
+require 'acts_as_follower'
 require 'private_person'
 
 # Requires supporting files with custom matchers and macros, etc,

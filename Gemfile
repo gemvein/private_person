@@ -15,6 +15,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'acts_as_follower'
 end
 
 gem 'rails', '3.2.14'
