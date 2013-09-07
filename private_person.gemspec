@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
     "lib/private_person/models/permissor.rb",
     "lib/private_person/models/permitted.rb",
     "lib/private_person/version.rb",
+    "private_person.gemspec",
     "script/rails",
     "spec/dummy/.rspec",
     "spec/dummy/Rakefile",
