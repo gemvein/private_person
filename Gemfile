@@ -18,4 +18,4 @@ group :development, :test do
   gem 'acts_as_follower'
 end
 
-gem 'rails', '3.2.14'
+gem 'rails'
