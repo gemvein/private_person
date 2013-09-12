@@ -22,7 +22,11 @@ module PrivatePerson
         end
 
         def relationship_to(permissor)
-          # First check for an efficient method
+          # First make sure we're not a new user
+          if self.new_record?
+            return nil
+          end
+          # Next check for an efficient method
           for relationship_method in permissor.class.of
             is_method = ('is_' + relationship_method.to_s.singularize + '_of?').to_sym
             if respond_to?(is_method) and self.send(is_method, permissor)

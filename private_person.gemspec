@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "private_person"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Karen Lundgren"]
-  s.date = "2013-09-07"
+  s.date = "2013-09-12"
   s.description = "Private person is an active record extension gem that allows a model to be given privacy settings over arbitrary models and polymorphic relations, putting users' accounts in control of their own privacy policies."
   s.email = "webmaster@sourcherryweb.com"
   s.extra_rdoc_files = [
