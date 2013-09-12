@@ -18,7 +18,7 @@ class Permission < ActiveRecord::Base
   end
 
   def self.find_all_by_relationship_type(relationship_type)
-    if relationship_type == 'public'
+    if relationship_type == 'public' or relationship_type.nil?
       return where("relationship_type = 'public'")
     end
     if(self.permissible_types.include? relationship_type)
