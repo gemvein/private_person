@@ -1,4 +1,5 @@
 shared_context 'users support' do
+  let!(:stranger) { FactoryGirl.create(:user) }
   let!(:following_user) { FactoryGirl.create(:user) }
   let!(:followed_user) { FactoryGirl.create(:user) }
   let!(:follower_user) { FactoryGirl.create(:user) }

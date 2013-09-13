@@ -24,7 +24,7 @@ module PrivatePerson
         def relationship_to(permissor)
           # First make sure we're not a new user
           if self.new_record?
-            return nil
+            return 'public'
           end
           # Next check for an efficient method
           for relationship_method in permissor.class.of
@@ -40,7 +40,7 @@ module PrivatePerson
               return relationship_method.to_s
             end
           end
-          return nil
+          return 'public'
         end
       end
     end

@@ -11,6 +11,22 @@ module PrivatePerson
       class_eval do
         has_many :permissions, :as => :permissor
         has_many :permissibles, :through => :permissions, :as => :permissible
+
+        def permits(whom, what)
+          existing = self.permissions.find_all_by_relationship_type(whom).find_all_by_permissible(what)
+
+          if existing.empty?
+            self.permissions.create({:relationship_type => whom, :permissible => what})
+          end
+        end
+
+        def wildcard_permits(whom, what)
+          existing = self.permissions.find_all_by_relationship_type(whom).find_all_by_permissible_type(what)
+
+          if existing.empty?
+            self.permissions.create({:relationship_type => whom, :permissible_type => what})
+          end
+        end
       end
     end
   end

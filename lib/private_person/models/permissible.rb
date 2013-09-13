@@ -9,7 +9,7 @@ module PrivatePerson
 
       class_eval do
         has_many :permissions, :as => :permissible
-        has_many :permissors, :through => :permissions, :as => :permissor
+        has_one :permissor, :through => :permissions, :as => :permissor
 
         def is_public?
           !permissions.find_all_by_relationship(nil).empty?

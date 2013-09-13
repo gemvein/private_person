@@ -32,6 +32,10 @@ describe User do
           subject { follower_of_follower_user.relationship_to(followed_user) }
           it { should eq 'follower_of_followers' }
         end
+        context 'when stranger' do
+          subject { stranger.relationship_to(followed_user) }
+          it { should eq 'public' }
+        end
       end
       describe '#permissions_by' do
         include_context 'permissions support'
@@ -94,6 +98,42 @@ describe User do
         context 'otherwise' do
           subject { following_user.is_permitted?(followed_user, forbidden_page) }
           it { should be false }
+        end
+      end
+    end
+  end
+
+  describe PrivatePerson::Permissor do
+    include_context 'users support'
+    include_context 'permissor support'
+    context 'Instance Methods' do
+
+      describe '#permits' do
+        context 'when overriding public' do
+          before do
+            public_user.permits 'none', public_user_page
+          end
+          subject { stranger.is_permitted? public_user, public_user_page }
+          it { should be false }
+        end
+        context 'when overriding none' do
+          before do
+            private_user.permits 'public', private_user_page
+          end
+          subject { stranger.is_permitted? private_user, private_user_page }
+          it { should be true }
+        end
+      end
+      describe '#wildcard_permits' do
+         # the support files already ran the heavy lifting,
+         # so if they worked we're golden
+        context 'with none' do
+          subject { stranger.is_permitted? private_user, private_user_page }
+          it { should be false }
+        end
+        context 'with public' do
+          subject { stranger.is_permitted? public_user, public_user_page }
+          it { should be true }
         end
       end
     end
