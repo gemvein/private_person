@@ -3,11 +3,9 @@ require 'spec_helper'
 describe User do
 
   describe PrivatePerson::Permitted do
-    it { should have_many(:permissions) }
+    it { should have_many(:permissions_as_permissor) }
     it { should have_many(:permissibles) }
-  end
 
-  describe PrivatePerson::Permitted do
     context 'Instance Methods' do
 
       describe '#relationship_to' do
@@ -111,14 +109,14 @@ describe User do
       describe '#permits' do
         context 'when overriding public' do
           before do
-            public_user.permits 'none', public_user_page
+            public_user.permit! 'none', public_user_page
           end
           subject { stranger.is_permitted? public_user, public_user_page }
           it { should be false }
         end
         context 'when overriding none' do
           before do
-            private_user.permits 'public', private_user_page
+            private_user.permit! 'public', private_user_page
           end
           subject { stranger.is_permitted? private_user, private_user_page }
           it { should be true }

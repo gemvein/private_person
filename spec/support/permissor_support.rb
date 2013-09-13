@@ -6,7 +6,7 @@ shared_context 'permissor support' do
   let!(:private_user_page) { FactoryGirl.create(:page, :user => private_user)}
 
   before do
-    public_user.wildcard_permits 'public', 'Page'
-    private_user.wildcard_permits 'none', 'Page'
+    public_user.wildcard_permit! 'public', 'Page'
+    private_user.wildcard_permit! 'none', 'Page'
   end
 end

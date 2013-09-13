@@ -9,23 +9,25 @@ module PrivatePerson
       class_name = params[:class_name] || params[:of].to_s.classify
       class_name.constantize.acts_as_permitted
       class_eval do
-        has_many :permissions, :as => :permissor
-        has_many :permissibles, :through => :permissions, :as => :permissible
+        has_many :permissions_as_permissor, :as => :permissor, :class_name => 'Permission'
+        has_many :permissibles, :through => :permissions, :as => :permissor
 
-        def permits(whom, what)
-          existing = self.permissions.find_all_by_relationship_type(whom).find_all_by_permissible(what)
+        def permit!(whom, what)
+          existing = self.permissions_as_permissor.find_all_by_relationship_type(whom).find_all_by_permissible(what)
 
           if existing.empty?
-            self.permissions.create({:relationship_type => whom, :permissible => what})
+            self.permissions_as_permissor.create!({:relationship_type => whom, :permissible => what})
           end
+          self.permissions_as_permissor.reload
         end
 
-        def wildcard_permits(whom, what)
-          existing = self.permissions.find_all_by_relationship_type(whom).find_all_by_permissible_type(what)
+        def wildcard_permit!(whom, what)
+          existing = self.permissions_as_permissor.find_all_by_relationship_type(whom).find_all_by_permissible_type(what)
 
           if existing.empty?
-            self.permissions.create({:relationship_type => whom, :permissible_type => what})
+            self.permissions_as_permissor.create!({:relationship_type => whom, :permissible_type => what})
           end
+          self.permissions_as_permissor.reload
         end
       end
     end
