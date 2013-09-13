@@ -3,6 +3,9 @@ module PrivatePerson
     def acts_as_permitted
       class_eval do
         def is_permitted?(permissor, permissible)
+          if permissible.nil?
+            raise 'Called is_permitted? on nil. Does not compute. Preparing to self destruct.'
+          end
           if Permission.find_all_by_permissible(permissible).blocked.exists?
             return false
           end
