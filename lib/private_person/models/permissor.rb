@@ -22,7 +22,7 @@ module PrivatePerson
         end
 
         def wildcard_permit!(whom, what)
-          existing = self.permissions_as_permissor.by_relationship_type(whom).find_all_by_permissible_type(what)
+          existing = self.permissions_as_permissor.find_all_by_relationship_type(whom).where(:permissible_type, what)
 
           if existing.empty?
             self.permissions_as_permissor.create!({:relationship_type => whom, :permissible_type => what})
