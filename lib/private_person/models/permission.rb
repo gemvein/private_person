@@ -5,19 +5,19 @@ class Permission < ActiveRecord::Base
   attr_accessible :permissible, :permissible_type, :permissible_id, :relationship_type
   validates_presence_of :permissor, :permissible_type, :relationship_type
 
-  def self.find_all_by_permissor(permissor)
+  def self.by_permissor(permissor)
     where("permissor_type = ? AND permissor_id = ?", permissor.class.name, permissor.id)
   end
 
-  def self.find_all_by_permissible(permissible)
+  def self.by_permissible(permissible)
     where("permissible_type = ? AND permissible_id = ?", permissible.class.name, permissible.id)
   end
 
-  def self.find_all_by_wildcard(permissible_type)
+  def self.by_wildcard(permissible_type)
     where(:permissible_type => permissible_type, :permissible_id => nil)
   end
 
-  def self.find_all_by_relationship_type(relationship_type)
+  def self.by_relationship_type(relationship_type)
     if relationship_type == 'public' or relationship_type.nil?
       return where("relationship_type = 'public'")
     end

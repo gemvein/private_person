@@ -6,14 +6,14 @@ module PrivatePerson
           if permissible.nil?
             raise 'Called is_permitted? on nil. Does not compute. Preparing to self destruct.'
           end
-          if Permission.find_all_by_permissible(permissible).blocked.exists?
+          if Permission.by_permissible(permissible).blocked.exists?
             return false
           end
-          wildcards = permissions_by(permissor).find_all_by_wildcard(permissible.class.name).legitimate
+          wildcards = permissions_by(permissor).by_wildcard(permissible.class.name).legitimate
           if wildcards.exists?
             return true
           end
-          permissions = permissions_by(permissor).find_all_by_permissible(permissible).legitimate
+          permissions = permissions_by(permissor).by_permissible(permissible).legitimate
           if permissions.exists?
             return true
           end
@@ -21,7 +21,7 @@ module PrivatePerson
         end
 
         def permissions_by(permissor)
-          Permission.find_all_by_permissor(permissor).find_all_by_relationship_type(relationship_to(permissor))
+          Permission.by_permissor(permissor).by_relationship_type(relationship_to(permissor))
         end
 
         def relationship_to(permissor)

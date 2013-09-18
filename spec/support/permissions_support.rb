@@ -19,6 +19,6 @@ shared_context 'permissions support' do
   let!(:none_permission)  { FactoryGirl.create(:permission, :permissor => followed_user, :permissible => none_page, :relationship_type => 'none') }
 
   let!(:permissions) { Permission.all }
-  let!(:wildcards) { Permission.find_all_by_wildcard('Page') }
+  let!(:wildcards) { Permission.by_wildcard('Page') }
 
 end

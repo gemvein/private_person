@@ -12,7 +12,7 @@ module PrivatePerson
         has_one :permissor, :through => :permissions, :as => :permissor
 
         def is_public?
-          !permissions.find_all_by_relationship_type(nil).empty?
+          !permissions.by_relationship_type(nil).empty?
         end
       end
     end

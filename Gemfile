@@ -19,3 +19,4 @@ group :development, :test do
 end
 
 gem 'rails'
+gem 'protected_attributes'

@@ -19,8 +19,8 @@ describe Permission do
   describe 'Class Methods' do
     include_context 'permissions support'
 
-    describe '.find_all_by_permissor' do
-      subject { Permission.find_all_by_permissor(followed_user) }
+    describe '.by_permissor' do
+      subject { Permission.by_permissor(followed_user) }
       it { should have_exactly(8).items }
       it { should include general_permission }
       it { should include following_users_permission }
@@ -32,18 +32,18 @@ describe Permission do
       it { should include forbidden_permission }
     end
 
-    describe '.find_all_by_permissible' do
-      subject { Permission.find_all_by_permissible(following_page) }
+    describe '.by_permissible' do
+      subject { Permission.by_permissible(following_page) }
       it { should eq [following_users_permission]}
     end
 
-    describe '.find_all_by_wildcard' do
-      subject { Permission.find_all_by_wildcard('Page') }
+    describe '.by_wildcard' do
+      subject { Permission.by_wildcard('Page') }
       it { should eq [general_permission] }
     end
 
-    describe '.find_all_by_relationship_type' do
-      subject { Permission.find_all_by_relationship_type('following_users') }
+    describe '.by_relationship_type' do
+      subject { Permission.by_relationship_type('following_users') }
       it { should have_exactly(3).items }
       it { should include general_permission }
       it { should include following_users_permission }
