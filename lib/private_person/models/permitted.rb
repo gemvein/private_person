@@ -6,15 +6,15 @@ module PrivatePerson
           if permissible.nil?
             raise 'Called is_permitted? on nil. Does not compute. Preparing to self destruct.'
           end
-          if Permission.by_permissible(permissible).blocked.exists?
+          unless Permission.by_permissible(permissible).blocked.empty?
             return false
           end
           wildcards = permissions_by(permissor).by_wildcard(permissible.class.name).legitimate
-          if wildcards.exists?
+          if wildcards.present?
             return true
           end
           permissions = permissions_by(permissor).by_permissible(permissible).legitimate
-          if permissions.exists?
+          if permissions.present?
             return true
           end
           return false
@@ -39,7 +39,7 @@ module PrivatePerson
           # Then check for a slow method
           for relationship_method in permissor.class.of
             relationship_members = permissor.send(relationship_method.to_sym)
-            if relationship_members.exists?(:id => self.id)
+            if relationship_members.present? and relationship_members.find(:id => self.id).exists?
               return relationship_method.to_s
             end
           end
