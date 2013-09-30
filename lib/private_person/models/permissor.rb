@@ -16,7 +16,7 @@ module PrivatePerson
           existing = self.permissions_as_permissor.by_relationship_type(whom).by_permissible(what)
 
           if existing.empty?
-            self.permissions_as_permissor.create!({:relationship_type => whom, :permissible => what})
+            self.permissions_as_permissor.create!(permission_params(whom, what))
           end
           self.permissions_as_permissor.reload
         end
@@ -25,9 +25,19 @@ module PrivatePerson
           existing = self.permissions_as_permissor.by_relationship_type(whom).where(:permissible_type, what)
 
           if existing.empty?
-            self.permissions_as_permissor.create!({:relationship_type => whom, :permissible_type => what})
+            self.permissions_as_permissor.create!(wildcard_permission_params(whom, what))
           end
           self.permissions_as_permissor.reload
+        end
+
+        def permission_params(whom, what)
+          params = ActionController::Parameters.new({:relationship_type => whom, :permissible => what})
+          params.permit!
+        end
+
+        def wildcard_permission_params(whom, what)
+          params = ActionController::Parameters.new({:relationship_type => whom, :permissible_type => what})
+          params.permit!
         end
       end
     end

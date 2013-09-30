@@ -39,7 +39,7 @@ module PrivatePerson
           # Then check for a slow method
           for relationship_method in permissor.class.of
             relationship_members = permissor.send(relationship_method.to_sym)
-            if relationship_members.present? and relationship_members.find(:id => self.id).exists?
+            if relationship_members.present? and relationship_members.exists?(:id => self.id)
               return relationship_method.to_s
             end
           end
