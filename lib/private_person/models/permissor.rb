@@ -31,13 +31,11 @@ module PrivatePerson
         end
 
         def permission_params(whom, what)
-          params = ActionController::Parameters.new({:relationship_type => whom, :permissible => what})
-          params.permit!
+          ActionController::Parameters.new({:relationship_type => whom, :permissible_type => what.class.name, :permissible_id => what.id}).permit!
         end
 
         def wildcard_permission_params(whom, what)
-          params = ActionController::Parameters.new({:relationship_type => whom, :permissible_type => what})
-          params.permit!
+          ActionController::Parameters.new({:relationship_type => whom, :permissible_type => what}).permit!
         end
       end
     end

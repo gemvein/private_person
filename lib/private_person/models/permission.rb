@@ -2,9 +2,6 @@ class Permission < ActiveRecord::Base
   belongs_to :permissor, :polymorphic => true
   belongs_to :permissible, :polymorphic => true
 
-  attr_accessible :permissible, :permissible_type, :permissible_id, :relationship_type
-  validates_presence_of :permissor, :permissible_type, :relationship_type
-
   def self.by_permissor(permissor)
     where("permissor_type = ? AND permissor_id = ?", permissor.class.name, permissor.id)
   end

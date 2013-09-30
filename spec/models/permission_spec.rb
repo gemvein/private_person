@@ -5,17 +5,6 @@ describe Permission do
   it { should belong_to(:permissor) }
   it { should belong_to(:permissible) }
 
-  # Check accessible attributes
-  it { should allow_mass_assignment_of(:permissible) }
-  it { should allow_mass_assignment_of(:permissible_type) }
-  it { should allow_mass_assignment_of(:permissible_id) }
-  it { should allow_mass_assignment_of(:relationship_type) }
-
-  # Check validations
-  it { should validate_presence_of(:permissor) }
-  it { should validate_presence_of(:permissible_type) }
-  it { should validate_presence_of(:relationship_type) }
-
   describe 'Class Methods' do
     include_context 'permissions support'
 

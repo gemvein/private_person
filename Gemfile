@@ -15,8 +15,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  gem 'acts_as_follower'
+  gem 'chalk_dust', :git => 'git://github.com/nerakdon/chalk_dust.git'
 end
 
 gem 'rails'
-gem 'protected_attributes'

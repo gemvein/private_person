@@ -13,7 +13,7 @@ FactoryGirl.definition_file_paths = %w(spec/factories)
 
 require 'database_cleaner'
 require 'shoulda-matchers'
-require 'acts_as_follower'
+require 'chalk_dust'
 require 'private_person'
 
 # Requires supporting files with custom matchers and macros, etc,
