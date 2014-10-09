@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Karen Lundgren"]
-  s.date = "2013-09-30"
+  s.date = "2014-10-09"
   s.description = "Private person is an active record extension gem that allows a model to be given privacy settings over arbitrary models and polymorphic relations, putting users' accounts in control of their own privacy policies."
-  s.email = "webmaster@sourcherryweb.com"
+  s.email = "karen.e.lundgren@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -52,7 +52,6 @@ Gem::Specification.new do |s|
     "spec/dummy/config/initializers/mime_types.rb",
     "spec/dummy/config/initializers/secret_token.rb",
     "spec/dummy/config/initializers/session_store.rb",
-    "spec/dummy/config/initializers/wrap_parameters.rb",
     "spec/dummy/config/locales/devise.en.yml",
     "spec/dummy/config/locales/en.yml",
     "spec/dummy/config/routes.rb",
@@ -74,7 +73,7 @@ Gem::Specification.new do |s|
     "spec/support/permissor_support.rb",
     "spec/support/users_support.rb"
   ]
-  s.homepage = "http://github.com/nerakdon/private_person"
+  s.homepage = "http://www.gemvein.com/museum/cases/private_person"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "2.0.3"
@@ -85,6 +84,18 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rails>, [">= 0"])
+      s.add_runtime_dependency(%q<private_person>, [">= 0"])
+      s.add_development_dependency(%q<rdoc>, [">= 0"])
+      s.add_development_dependency(%q<bundler>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<sqlite3>, [">= 0"])
+      s.add_development_dependency(%q<rspec>, [">= 0"])
+      s.add_development_dependency(%q<rspec-rails>, [">= 0"])
+      s.add_development_dependency(%q<rspec-its>, [">= 0"])
+      s.add_development_dependency(%q<shoulda-matchers>, [">= 0"])
+      s.add_development_dependency(%q<factory_girl_rails>, [">= 0"])
+      s.add_development_dependency(%q<database_cleaner>, [">= 0"])
+      s.add_development_dependency(%q<chalk_dust>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, [">= 0"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
@@ -97,6 +108,18 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<chalk_dust>, [">= 0"])
     else
       s.add_dependency(%q<rails>, [">= 0"])
+      s.add_dependency(%q<private_person>, [">= 0"])
+      s.add_dependency(%q<rdoc>, [">= 0"])
+      s.add_dependency(%q<bundler>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<sqlite3>, [">= 0"])
+      s.add_dependency(%q<rspec>, [">= 0"])
+      s.add_dependency(%q<rspec-rails>, [">= 0"])
+      s.add_dependency(%q<rspec-its>, [">= 0"])
+      s.add_dependency(%q<shoulda-matchers>, [">= 0"])
+      s.add_dependency(%q<factory_girl_rails>, [">= 0"])
+      s.add_dependency(%q<database_cleaner>, [">= 0"])
+      s.add_dependency(%q<chalk_dust>, [">= 0"])
       s.add_dependency(%q<rdoc>, [">= 0"])
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
@@ -110,6 +133,18 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<rails>, [">= 0"])
+    s.add_dependency(%q<private_person>, [">= 0"])
+    s.add_dependency(%q<rdoc>, [">= 0"])
+    s.add_dependency(%q<bundler>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<sqlite3>, [">= 0"])
+    s.add_dependency(%q<rspec>, [">= 0"])
+    s.add_dependency(%q<rspec-rails>, [">= 0"])
+    s.add_dependency(%q<rspec-its>, [">= 0"])
+    s.add_dependency(%q<shoulda-matchers>, [">= 0"])
+    s.add_dependency(%q<factory_girl_rails>, [">= 0"])
+    s.add_dependency(%q<database_cleaner>, [">= 0"])
+    s.add_dependency(%q<chalk_dust>, [">= 0"])
     s.add_dependency(%q<rdoc>, [">= 0"])
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])

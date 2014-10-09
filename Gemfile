@@ -5,17 +5,17 @@ source 'http://rubygems.org'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
-group :development, :test do
-  gem 'rdoc'
-  gem 'bundler'
-  gem 'jeweler'
-  gem 'sqlite3'
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
-  gem 'factory_girl_rails'
-  gem 'database_cleaner'
-  gem 'chalk_dust', :git => 'git://github.com/nerakdon/chalk_dust.git'
-end
+gem 'rdoc', group: [:development, :test]
+gem 'bundler', group: [:development, :test]
+gem 'jeweler', group: [:development, :test]
+gem 'sqlite3', group: [:development, :test]
+gem 'rspec', group: [:development, :test]
+gem 'rspec-rails', group: [:development, :test]
+gem 'shoulda-matchers', group: [:development, :test]
+gem 'factory_girl_rails', group: [:development, :test]
+gem 'database_cleaner', group: [:development, :test]
+gem 'chalk_dust', group: [:development, :test]
 
 gem 'rails'
+
+gemspec

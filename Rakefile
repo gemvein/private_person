@@ -15,11 +15,11 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "private_person"
-  gem.homepage = "http://github.com/nerakdon/private_person"
+  gem.homepage = "http://www.gemvein.com/museum/cases/private_person"
   gem.license = "MIT"
   gem.summary = %Q{Private person puts your users in control of their own privacy policies.}
   gem.description = %Q{Private person is an active record extension gem that allows a model to be given privacy settings over arbitrary models and polymorphic relations, putting users' accounts in control of their own privacy policies.}
-  gem.email = "webmaster@sourcherryweb.com"
+  gem.email = "karen.e.lundgren@gmail.com"
   gem.authors = ["Karen Lundgren"]
   # dependencies defined in Gemfile
 end
@@ -37,13 +37,3 @@ RSpec::Core::RakeTask.new(:rcov) do |spec|
 end
 
 task :default => :spec
-
-require 'rdoc/task'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "private_person #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end

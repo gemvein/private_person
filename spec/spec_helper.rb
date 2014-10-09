@@ -7,6 +7,7 @@ require 'rails/all'
 require 'sqlite3'
 require 'rspec'
 require 'rspec/rails'
+require 'rspec/its'
 
 require 'factory_girl_rails'
 FactoryGirl.definition_file_paths = %w(spec/factories)

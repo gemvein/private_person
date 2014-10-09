@@ -1,8 +1,12 @@
 = PrivatePerson
 
+{<img src="https://badge.fury.io/rb/private_person.svg" alt="Gem Version" />}[http://badge.fury.io/rb/private_person]
+{<img src="https://travis-ci.org/gemvein/private_person.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/gemvein/private_person]
+{<img src="https://coveralls.io/repos/gemvein/private_person/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/gemvein/private_person]
+
 Private person is an active record extension gem that allows a model to be given privacy settings over arbitrary models and polymorphic relations, putting users' accounts in control of their own privacy policies.
 
-== Contributing to Person
+== Contributing to Private Person
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
@@ -14,5 +18,5 @@ Private person is an active record extension gem that allows a model to be given
 
 == Copyright
 
-Copyright (c) 2013 Sour Cherry Web. See LICENSE.txt for further details.
+Copyright (c) 2013-2014 Gem Vein. See LICENSE.txt for further details.
 
