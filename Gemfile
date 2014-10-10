@@ -3,19 +3,8 @@ source 'http://rubygems.org'
 # Example:
 #   gem 'activesupport', '>= 2.3.5'
 
-# Add dependencies to develop your gem here.
-# Include everything needed to run rake, tests, features, etc.
-gem 'rdoc', group: [:development, :test]
-gem 'bundler', group: [:development, :test]
-gem 'jeweler', group: [:development, :test]
-gem 'sqlite3', group: [:development, :test]
-gem 'rspec', group: [:development, :test]
-gem 'rspec-rails', group: [:development, :test]
-gem 'shoulda-matchers', group: [:development, :test]
-gem 'factory_girl_rails', group: [:development, :test]
-gem 'database_cleaner', group: [:development, :test]
-gem 'chalk_dust', group: [:development, :test]
-
-gem 'rails'
+gem 'rails', '>= 4.0'
+gem 'activerecord', '>= 4.0'
+gem 'chalk_dust', group: :test, git: 'https://github.com/nerakdon/chalk_dust.git'
 
 gemspec

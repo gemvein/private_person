@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
 
-  describe PrivatePerson::Permitted do
+  describe 'acts_as_permitted' do
     it { should have_many(:permissions_as_permissor) }
     it { should have_many(:permissibles) }
 
@@ -40,26 +40,26 @@ describe User do
         context 'when following' do
           subject { following_user.permissions_by(followed_user) }
           it { should be_an ActiveRecord::Relation }
-          its(:first) { should be_a Permission }
+          its(:first) { should be_a PrivatePerson::Permission }
           it { should include following_users_permission }
           it { should include public_permission }
         end
         context 'when follower' do
           subject { follower_user.permissions_by(followed_user) }
           it { should be_an ActiveRecord::Relation }
-          its(:first) { should be_a Permission }
+          its(:first) { should be_a PrivatePerson::Permission }
           it { should include user_followers_permission }
         end
         context 'when following_of_followings' do
           subject { following_of_following_user.permissions_by(followed_user) }
           it { should be_an ActiveRecord::Relation }
-          its(:first) { should be_a Permission }
+          its(:first) { should be_a PrivatePerson::Permission }
           it { should include following_of_followings_permission }
         end
         context 'when follower_of_follower' do
           subject { follower_of_follower_user.permissions_by(followed_user) }
           it { should be_an ActiveRecord::Relation }
-          its(:first) { should be_a Permission }
+          its(:first) { should be_a PrivatePerson::Permission }
           it { should include follower_of_followers_permission }
         end
       end
@@ -101,7 +101,7 @@ describe User do
     end
   end
 
-  describe PrivatePerson::Permissor do
+  describe 'acts_as_permissor' do
     include_context 'users support'
     include_context 'permissor support'
     context 'Instance Methods' do
