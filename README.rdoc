@@ -6,6 +6,47 @@
 
 Private person is an active record extension gem that allows a model to be given privacy settings over arbitrary models and polymorphic relations, putting users' accounts in control of their own privacy policies.
 
+== Installation
+
+To get started, add private_person to your Gemfile.
+    gem 'private_person'
+
+Next, run the install:
+    rails g private_person:install
+
+Set up your models:
+
+    # e.g. app/models/user.rb using ChalkDust as the subscription model
+    class User < ActiveRecord::Base
+      acts_as_permissor of: [
+                                :following_users,
+                                :user_followers # Or any method/scope names that will show who this User is being the permissor of
+                            ], class_name: 'User' # The class_name indicates the class of the objects in the methods above.
+
+      def follow(user)
+        ChalkDust.subscribe(self, :to => user)
+      end
+
+      def following_users
+        ChalkDust.publishers_of(self)
+      end
+
+      def user_followers
+        ChalkDust.subscribers_of(self)
+      end
+    end
+
+    # e.g. app/models/page.rb
+    class Page < ActiveRecord::Base
+      acts_as_permissible :by => :user
+      belongs_to :user
+    end
+
+# Then, when you need to know who's permitted:
+
+    @user.is_permitted? friend_user, Page
+
+
 == Contributing to Private Person
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.

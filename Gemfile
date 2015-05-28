@@ -5,6 +5,4 @@ source 'http://rubygems.org'
 
 gem 'rails', '>= 4.0'
 gem 'activerecord', '>= 4.0'
-gem 'chalk_dust', group: :test, git: 'https://github.com/nerakdon/chalk_dust.git'
-
-gemspec
+gem 'chalk_dust', group: :test

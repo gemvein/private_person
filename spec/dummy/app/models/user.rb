@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   def following_of_followings
     ids = []
     for user in following_users
-      ids |= user.following_users
+      ids += user.following_users
     end
     User.where(:id => ids)
   end
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   def follower_of_followers
     ids = []
     for user in user_followers
-      ids |= user.user_followers
+      ids += user.user_followers
     end
     User.where(:id => ids)
   end
