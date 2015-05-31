@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Karen Lundgren"]
-  s.date = "2014-10-10"
+  s.date = "2015-05-31"
   s.description = "Private person is an active record extension gem that allows a model to be given privacy settings over arbitrary models and polymorphic relations, putting users' accounts in control of their own privacy policies."
   s.email = "karen.e.lundgren@gmail.com"
   s.extra_rdoc_files = [
@@ -77,7 +77,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "http://www.gemvein.com/museum/cases/private_person"
   s.licenses = ["MIT"]
-  s.rubygems_version = "2.2.2"
+  s.rubygems_version = "2.4.5"
   s.summary = "Private person puts your users in control of their own privacy policies."
 
   if s.respond_to? :specification_version then
@@ -86,46 +86,16 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rails>, [">= 4.0"])
       s.add_runtime_dependency(%q<activerecord>, [">= 4.0"])
-      s.add_runtime_dependency(%q<private_person>, [">= 0"])
-      s.add_development_dependency(%q<rdoc>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, [">= 0"])
-      s.add_development_dependency(%q<sqlite3>, [">= 0"])
-      s.add_development_dependency(%q<rspec>, [">= 0"])
-      s.add_development_dependency(%q<rspec-rails>, [">= 0"])
-      s.add_development_dependency(%q<rspec-its>, [">= 0"])
-      s.add_development_dependency(%q<shoulda-matchers>, [">= 0"])
-      s.add_development_dependency(%q<factory_girl_rails>, [">= 0"])
-      s.add_development_dependency(%q<database_cleaner>, [">= 0"])
+      s.add_runtime_dependency(%q<jeweler>, ["~> 2"])
     else
       s.add_dependency(%q<rails>, [">= 4.0"])
       s.add_dependency(%q<activerecord>, [">= 4.0"])
-      s.add_dependency(%q<private_person>, [">= 0"])
-      s.add_dependency(%q<rdoc>, [">= 0"])
-      s.add_dependency(%q<bundler>, [">= 0"])
-      s.add_dependency(%q<jeweler>, [">= 0"])
-      s.add_dependency(%q<sqlite3>, [">= 0"])
-      s.add_dependency(%q<rspec>, [">= 0"])
-      s.add_dependency(%q<rspec-rails>, [">= 0"])
-      s.add_dependency(%q<rspec-its>, [">= 0"])
-      s.add_dependency(%q<shoulda-matchers>, [">= 0"])
-      s.add_dependency(%q<factory_girl_rails>, [">= 0"])
-      s.add_dependency(%q<database_cleaner>, [">= 0"])
+      s.add_dependency(%q<jeweler>, ["~> 2"])
     end
   else
     s.add_dependency(%q<rails>, [">= 4.0"])
     s.add_dependency(%q<activerecord>, [">= 4.0"])
-    s.add_dependency(%q<private_person>, [">= 0"])
-    s.add_dependency(%q<rdoc>, [">= 0"])
-    s.add_dependency(%q<bundler>, [">= 0"])
-    s.add_dependency(%q<jeweler>, [">= 0"])
-    s.add_dependency(%q<sqlite3>, [">= 0"])
-    s.add_dependency(%q<rspec>, [">= 0"])
-    s.add_dependency(%q<rspec-rails>, [">= 0"])
-    s.add_dependency(%q<rspec-its>, [">= 0"])
-    s.add_dependency(%q<shoulda-matchers>, [">= 0"])
-    s.add_dependency(%q<factory_girl_rails>, [">= 0"])
-    s.add_dependency(%q<database_cleaner>, [">= 0"])
+    s.add_dependency(%q<jeweler>, ["~> 2"])
   end
 end
 

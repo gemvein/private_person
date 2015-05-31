@@ -19,7 +19,7 @@ module PrivatePerson
       if relationship_type == 'public' or relationship_type.nil?
         return where("relationship_type = 'public'")
       end
-      if(self.permissible_types.include? relationship_type)
+      if self.permissible_types.include? relationship_type
         return where("relationship_type = ? OR relationship_type = 'public'", relationship_type)
       end
       return where(0)

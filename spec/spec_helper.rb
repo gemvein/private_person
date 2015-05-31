@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rails/all'
 require 'sqlite3'
-require 'rspec'
+# require 'rspec'
 require 'rspec/rails'
 require 'rspec/its'
 
@@ -22,6 +22,8 @@ require 'private_person'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
+  config.expect_with(:rspec) { |c| c.syntax = :should }
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:deletion)

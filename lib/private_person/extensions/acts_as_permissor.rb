@@ -14,7 +14,7 @@ module PrivatePerson
         class_name.constantize.acts_as_permitted
 
         has_many :permissions_as_permissor, :as => :permissor, :class_name => 'PrivatePerson::Permission'
-        has_many :permissibles, :through => :permissions, :as => :permissor
+        has_many :permissibles, :through => :permissions, :as => :permissor, :class_name => class_name
         
         send :include, InstanceMethods
       end

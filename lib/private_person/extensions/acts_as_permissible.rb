@@ -12,7 +12,7 @@ module PrivatePerson
         self.by = params[:by]
 
         has_many :permissions, :as => :permissible, :class_name => 'PrivatePerson::Permission'
-        has_many :permissors, :through => :permissions, :as => :permissible
+        has_many :permissors, :through => :permissions, :as => :permissible, :class_name => self.by.to_s.camelize
 
         send :include, InstanceMethods
       end
